@@ -14,7 +14,6 @@ module.exports = async (prompt) => {
     frequency_penalty: 0,
     presence_penalty: 0,
   });
-  const date = Date.now().toString()
-   
+  
   return data.choices[0].text
 }
