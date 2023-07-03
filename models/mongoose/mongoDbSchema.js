@@ -3,13 +3,22 @@ const { Schema } = mongoose
 mongoose.connect(process.env.MONGODB_URI);
 const userScheduleSchema = new Schema({
   userId: Number, // String is shorthand for {type: String}
+  scheduleTitle: String,
   startDate: Date,
-  scedules: [{
+  schedules: [{
     task: String,
     complete: Boolean
   }]
 });
 
-const UserSchedule = mongoose.model('UserSchedules', userScheduleSchema)
+const schedulesSchema = new Schema({
+  title: String,
+  schedules: [{
+    task: String
+  }]
+})
 
-module.exports = { UserSchedule }
+const UserSchedule = mongoose.model('UserSchedules', userScheduleSchema)
+const Schedules = mongoose.model('Schedules', schedulesSchema)
+
+module.exports = { UserSchedule, Schedules }
