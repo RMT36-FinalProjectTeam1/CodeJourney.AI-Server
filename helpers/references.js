@@ -1,19 +1,20 @@
-import axios from "axios";
+const axios = require("axios");
 
-const references = async (title, ref) => {
+module.exports = async (title, ref) => {
   let cx;
+
   if (ref == "w3schools") {
     //W3SCHOOLS Google Search
-    cx = "257f62a7f0c264bf3";
+    cx = "c7f4c29c9ea02477e";
   } else if (ref == "freecodecamp") {
     //FreeCodeCamp Google Search
-    cx = "91e2baa6dd4df4e0d";
+    cx = "e3ced1917d4ab4aed";
   } else if (ref == "jst") {
     //Javascript Tutorial Google Search
-    cx = "27bdfaf1eeca3481d";
+    cx = "10f675e5cdb774d71";
   } else if (ref == "medium") {
-    //Javascript Tutorial Google Search
-    cx = "80baddc7faf0a4148";
+    //Medium Google Search
+    cx = "9727f8fddb3384252";
   }
 
   const { data } = await axios.get(
@@ -28,22 +29,21 @@ const references = async (title, ref) => {
   );
 
   let { items } = data;
-  items = items.slice(0, 5);
-
-  items.forEach((el) => {
-    delete el.kind;
-    delete el.htmlTitle;
-    delete el.displayLink;
-    delete el.snippet;
-    delete el.htmlSnippet;
-    delete el.cacheId;
-    delete el.formattedUrl;
-    delete el.htmlFormattedUrl;
-    delete el.pagemap;
-  });
-  return items;
+  if (items) {
+    items = items.slice(0, 5);
+    items.forEach((el) => {
+      delete el.kind;
+      delete el.htmlTitle;
+      delete el.displayLink;
+      delete el.snippet;
+      delete el.htmlSnippet;
+      delete el.cacheId;
+      delete el.formattedUrl;
+      delete el.htmlFormattedUrl;
+      delete el.pagemap;
+    });
+    return items;
+  } else {
+    return undefined;
+  }
 };
-
-module.exports = references;
-
-// references(`"Learn react redux"`, "medium");
