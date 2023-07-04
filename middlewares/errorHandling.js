@@ -16,15 +16,11 @@ module.exports = (err, req, res, next) => {
     status = 400
     msg = 'Email already registered!'
   }
-  
+
   if (err instanceof JsonWebTokenError) {
     status = 401
     msg = "Invalid Token"
   }
 
-  if (err.status === 404) msg = "Data not found"
-
-  if (typeof msg != "object") msg = { msg }
-
-  res.status(status).json(msg)
+  res.status(status).json({ msg })
 }

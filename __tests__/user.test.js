@@ -167,5 +167,16 @@ describe('ENDPOINT /login', () => {
       expect(response.body).toHaveProperty('msg', 'Email and password required')
     })
 
+    test('invalid email / password', async () => {
+
+      const bodyReq = {
+        email: 'mail@mail.com',
+        password: 'qwertyx'
+      }
+
+      const response = await request(app).post('/login').send(bodyReq)
+      expect(response.status).toBe(401)
+      expect(response.body).toHaveProperty('msg', "Incorrect Email and / or Password")
+    })
   })
 })

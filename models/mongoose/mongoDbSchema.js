@@ -1,6 +1,12 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose
-mongoose.connect(process.env.MONGODB_URI);
+let mongoUri
+if (process.env.NODE_ENV == 'test') {
+  mongoUri = process.env.MONGODB_URI_TEST
+} else {
+  mongoUri = process.env.MONGODB_URI
+}
+mongoose.connect(mongoUri);
 const userScheduleSchema = new Schema({
   userId: Number, // String is shorthand for {type: String}
   scheduleTitle: String,
