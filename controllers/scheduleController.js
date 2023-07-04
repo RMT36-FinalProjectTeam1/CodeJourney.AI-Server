@@ -113,19 +113,18 @@ class ScheduleController {
       }
 
       // fill quiz with generated array of object
-      const prompt = `make 5 quizzes for ${taskTitle} multiple choices, response me in json format in array "
-      [{
-        "question":"",
-        "choices":["",""],
-        "answer":choicesIndex
+      const prompt = `make 5 quizzes for ${taskTitle} multiple choices, response me in json array without numbering like this:
+      "[{
+           "question":"",
+           "choices":["",""],
+           "answer":choicesIndex
       },{
-        "question":"",
-        "choices":["",""],
-        "answer":choicesIndex
+           "question":"",
+           "choices":["",""],
+           "answer":choicesIndex
       }]"
       `;
       let quizString = await openAiApi(`${prompt}`);
-      console.log(quizString);
       let quiz = JSON.parse(`${quizString}`);
 
       const result = {

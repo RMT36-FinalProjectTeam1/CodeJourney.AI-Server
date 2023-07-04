@@ -5,16 +5,16 @@ module.exports = async (title, ref) => {
 
   if (ref == "w3schools") {
     //W3SCHOOLS Google Search
-    cx = "c7f4c29c9ea02477e";
+    cx = "76d61d142e04b472b";
   } else if (ref == "freecodecamp") {
     //FreeCodeCamp Google Search
-    cx = "e3ced1917d4ab4aed";
+    cx = "813d48500b81f487c";
   } else if (ref == "jst") {
     //Javascript Tutorial Google Search
-    cx = "10f675e5cdb774d71";
+    cx = "e1548f4f097f44a80";
   } else if (ref == "medium") {
     //Medium Google Search
-    cx = "9727f8fddb3384252";
+    cx = "b0f005ac1e2564bdd";
   }
 
   const { data } = await axios.get(
