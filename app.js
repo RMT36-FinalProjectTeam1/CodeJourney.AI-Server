@@ -14,7 +14,7 @@ app
   .use(express.json())
   .use(router);
 
-// module.exports = app
-app.listen(port, () => {
-  console.log(`berlari di port ${port}`);
-});
+module.exports = app
+// app.listen(port, () => {
+//   console.log(`berlari di port ${port}`);
+// });

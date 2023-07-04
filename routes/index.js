@@ -6,20 +6,17 @@ const ScheduleController = require("../controllers/scheduleController");
 const router = express.Router();
 
 router
-  .get("/", (req, res) => {
-    res.send("Hello World");
-  })
   .post("/register", UserController.register)
   .post("/login", UserController.login)
   .use(authentication)
   .post("/generatecustomtask", ScheduleController.generateCustomTasks)
   .post("/schedules", ScheduleController.createSchedule)
   .get("/schedules", ScheduleController.getAllUserSchedules)
-  .get("/schedules/detail/:taskId", ScheduleController.detailTaskById)
+  .get("/schedules/:scheduleId/:taskId", ScheduleController.detailTaskById)
   .get("/schedules/:scheduleId", ScheduleController.getUserSchedulesById)
   .patch("/schedules/:scheduleId", ScheduleController.updateCompleteTask)
   .delete("/schedules/:scheduleId", ScheduleController.deleteUserSchedulesById)
-  .post("/recommended", ScheduleController.createRecommendedSchedule)
+  // .post("/recommended", ScheduleController.createRecommendedSchedule)
   .get("/recommended", ScheduleController.getAllRecomendedSchedule)
   .use(errorHandling);
 // .post("/test",ScheduleController.test)

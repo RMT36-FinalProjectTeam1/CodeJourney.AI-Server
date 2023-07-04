@@ -1,4 +1,5 @@
 const { JsonWebTokenError } = require('jsonwebtoken');
+const { MongooseError } = require('mongoose');
 const { ValidationError, UniqueConstraintError } = require("sequelize")
 
 module.exports = (err, req, res, next) => {
@@ -22,5 +23,9 @@ module.exports = (err, req, res, next) => {
     msg = "Invalid Token"
   }
 
+  if (err instanceof MongooseError) {
+    status = 404
+    msg = "id not found"
+  }
   res.status(status).json({ msg })
 }
