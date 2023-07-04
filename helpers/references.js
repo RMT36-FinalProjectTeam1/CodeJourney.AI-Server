@@ -20,7 +20,7 @@ const references = async (title, ref) => {
     "https://www.googleapis.com/customsearch/v1",
     {
       params: {
-        key: "AIzaSyCghsGPwb4vGNnoSRmfQjt8Qx8B5Lh3zm4",
+        key: process.env.GOOGLE_SEARCH_API_KEY,
         cx: cx,
         q: title,
       },
