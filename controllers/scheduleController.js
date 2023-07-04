@@ -21,7 +21,7 @@ class ScheduleController {
         throw { status: 400, msg: `${prompt} is not in javascript scope` }
       }
       const tasks = await openAiApi(`${prompt} in javascript learning roadmap, give me response in json format like this:[{task:""},{task:""}]`)
-      res.status(200).json(JSON.parse(modifyString({ title: prompt, tasks })))
+      res.status(200).json({ title: prompt, tasks:JSON.parse(modifyString(tasks)) })
     } catch (err) {
       next(err)
     }
