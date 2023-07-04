@@ -6,9 +6,6 @@ const ScheduleController = require('../controllers/scheduleController');
 const router = express.Router()
 
 router
-  .get("/", (req, res) => {
-    res.send("Hello World")
-  })
   .post("/register",UserController.register)
   .post("/login", UserController.login)
   .use(authentication)
@@ -18,7 +15,7 @@ router
   .get("/schedules/:scheduleId",ScheduleController.getUserSchedulesById)
   .patch("/schedules/:scheduleId",ScheduleController.updateCompleteTask)
   .delete("/schedules/:scheduleId", ScheduleController.deleteUserSchedulesById)
-  .post("/recommended",ScheduleController.createRecommendedSchedule)
+  // .post("/recommended",ScheduleController.createRecommendedSchedule)
   .get("/recommended",ScheduleController.getAllRecomendedSchedule)
   .use(errorHandling)
   // .post("/test",ScheduleController.test)

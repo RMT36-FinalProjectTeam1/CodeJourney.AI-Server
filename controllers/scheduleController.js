@@ -93,18 +93,18 @@ class ScheduleController {
     }
   }
 
-  static async createRecommendedSchedule(req, res, next) {
-    try {
-      const { title, schedules } = req.body
-      await Schedules.create({
-        title,
-        schedules
-      })
-      res.status(201).json({ msg: 'Success' })
-    } catch (err) {
-      next(err)
-    }
-  }
+  // static async createRecommendedSchedule(req, res, next) {
+  //   try {
+  //     const { title, schedules } = req.body
+  //     await Schedules.create({
+  //       title,
+  //       schedules
+  //     })
+  //     res.status(201).json({ msg: 'Success' })
+  //   } catch (err) {
+  //     next(err)
+  //   }
+  // }
 
   static async getAllRecomendedSchedule(req, res, next) {
     try {
