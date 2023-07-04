@@ -5,16 +5,20 @@ module.exports = async (title, ref) => {
 
   if (ref == "w3schools") {
     //W3SCHOOLS Google Search
-    cx = "76d61d142e04b472b";
+    // cx = "76d61d142e04b472b"; //API BHAGAS
+    cx = 'e0aec80f8cc5a418b'
   } else if (ref == "freecodecamp") {
     //FreeCodeCamp Google Search
-    cx = "813d48500b81f487c";
+    // cx = "813d48500b81f487c"; //API BHAGAS
+    cx = 'b0ddccc3e98174f29'
   } else if (ref == "jst") {
     //Javascript Tutorial Google Search
-    cx = "e1548f4f097f44a80";
+    // cx = "e1548f4f097f44a80"; //API BHAGAS
+    cx = 'f315cf61fa6064a0d'
   } else if (ref == "medium") {
     //Medium Google Search
-    cx = "b0f005ac1e2564bdd";
+    // cx = "b0f005ac1e2564bdd"; //API BHAGAS
+    cx = 'c508bb205a0e94d5f'
   }
 
   const { data } = await axios.get(

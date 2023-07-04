@@ -673,3 +673,252 @@
     </details>
 
 ---
+
+## GET /schedules/:scheduleId/:taskId
+
+> Delete schedules by Id
+
+- **URL :**
+  /schedules/:scheduleId/:taskId
+
+- **Method:** `GET`
+
+- **URL Params :** `scheduleId=[String] taskId=[String]`
+
+- **Data Params**  `not needed`
+
+- **Success Response:**
+
+    <details>
+
+    <summary> <b> Code: </b> 200  </summary>
+
+  ```json
+  {
+    "_id": "64a4457f22edbf56adb44ea5",
+    "title": "Learn the basics of making an HTTP request with JavaScript",
+    "taskId": "64a308674bfb61f2db9c7704",
+    "reference": {
+        "youtube": {
+            "title": "4 ways to make an api call in JavaScript  | Http requests | JavaScript Tutorials",
+            "link": "https://www.youtube.com/watch?v=RG-weA9HUrg"
+        },
+        "medium": [
+            {
+                "title": "How to make HTTP requests using Fetch API and Promises | by ...",
+                "link": "https://medium.com/@armando_amador/how-to-make-http-requests-using-fetch-api-and-promises-b0ca7370a444",
+                "_id": "64a4457f22edbf56adb44ea6"
+            },
+            {
+                "title": "JavaScript XMLHttpRequest — Basics | by Peter Sz | The Startup ...",
+                "link": "https://medium.com/swlh/javascript-xmlhttprequest-basics-3da6f7e99dcc",
+                "_id": "64a4457f22edbf56adb44ea7"
+            },
+            {
+                "title": "Pitfalls of Promises: 5 Common Mistakes to Avoid in JavaScript ...",
+                "link": "https://medium.com/gitconnected/pitfalls-of-promises-5-common-mistakes-to-avoid-in-javascript-programming-b3b3e87a7fef?source=user_profile---------0----------------------------",
+                "_id": "64a4457f22edbf56adb44ea8"
+            },
+            {
+                "title": "Curl Simplified: A Beginner's Guide for JavaScript Developers | by ...",
+                "link": "https://medium.com/geekculture/curl-simplified-a-beginners-guide-for-javascript-developers-db981b77c328",
+                "_id": "64a4457f22edbf56adb44ea9"
+            },
+            {
+                "title": "How to learn JavaScript using ChatGPT-4? | by Apes Ascendance ...",
+                "link": "https://medium.com/javascript-quantum/tihow-to-learn-javascript-using-chatgpt-4-4b079717bb9d?source=user_profile---------7----------------------------",
+                "_id": "64a4457f22edbf56adb44eaa"
+            }
+        ],
+        "w3schools": [
+            {
+                "title": "XML HttpRequest",
+                "link": "https://www.w3schools.com/xml/xml_http.asp",
+                "_id": "64a4457f22edbf56adb44eab"
+            },
+            {
+                "title": "HTTP Methods GET vs POST",
+                "link": "https://www.w3schools.com/tags/ref_httpmethods.asp",
+                "_id": "64a4457f22edbf56adb44eac"
+            },
+            {
+                "title": "AJAX Introduction",
+                "link": "https://www.w3schools.com/xml/ajax_intro.asp",
+                "_id": "64a4457f22edbf56adb44ead"
+            },
+            {
+                "title": "What is HTTP",
+                "link": "https://www.w3schools.com/whatis/whatis_http.asp",
+                "_id": "64a4457f22edbf56adb44eae"
+            },
+            {
+                "title": "JSON Introduction",
+                "link": "https://www.w3schools.com/js/js_json_intro.asp",
+                "_id": "64a4457f22edbf56adb44eaf"
+            }
+        ],
+        "freecodecamp": [
+            {
+                "title": "Here are the most popular ways to make an HTTP request in ...",
+                "link": "https://www.freecodecamp.org/news/here-is-the-most-popular-ways-to-make-an-http-request-in-javascript-954ce8c95aaa/",
+                "_id": "64a4457f22edbf56adb44eb0"
+            },
+            {
+                "title": "JavaScript Get Request – How to Make an HTTP Request in JS",
+                "link": "https://www.freecodecamp.org/news/javascript-get-request-tutorial/",
+                "_id": "64a4457f22edbf56adb44eb1"
+            },
+            {
+                "title": "HTTP Networking in JavaScript – Handbook for Beginners",
+                "link": "https://www.freecodecamp.org/news/http-full-course/",
+                "_id": "64a4457f22edbf56adb44eb2"
+            },
+            {
+                "title": "JavaScript Post Request – How to Send an HTTP Post Request in JS",
+                "link": "https://www.freecodecamp.org/news/javascript-post-request-how-to-send-an-http-post-request-in-js/",
+                "_id": "64a4457f22edbf56adb44eb3"
+            },
+            {
+                "title": "HTTP Request Methods – Get vs Put vs Post Explained with Code ...",
+                "link": "https://www.freecodecamp.org/news/http-request-methods-explained/",
+                "_id": "64a4457f22edbf56adb44eb4"
+            }
+        ],
+        "jst": [
+            {
+                "title": "XMLHttpRequest",
+                "link": "https://javascript.info/xmlhttprequest",
+                "_id": "64a4457f22edbf56adb44eb5"
+            },
+            {
+                "title": "JavaScript Fetch API Explained By Examples",
+                "link": "https://www.javascripttutorial.net/javascript-fetch-api/",
+                "_id": "64a4457f22edbf56adb44eb6"
+            },
+            {
+                "title": "Fetch",
+                "link": "https://javascript.info/fetch",
+                "_id": "64a4457f22edbf56adb44eb7"
+            },
+            {
+                "title": "The Modern JavaScript Tutorial",
+                "link": "https://javascript.info/",
+                "_id": "64a4457f22edbf56adb44eb8"
+            },
+            {
+                "title": "WebSocket",
+                "link": "https://javascript.info/websocket",
+                "_id": "64a4457f22edbf56adb44eb9"
+            }
+        ]
+    },
+    "quiz": [
+        {
+            "question": "What does HTTP stand for?",
+            "choices": [
+                "Hypertext Transfer Protocol",
+                "High Transferability Protocol",
+                "Hypertext Transfer Path",
+                "Hypertext Transport Protocol"
+            ],
+            "answer": 0,
+            "_id": "64a4457f22edbf56adb44eba"
+        },
+        {
+            "question": "What is the default port used for HTTP?",
+            "choices": [
+                "80",
+                "2121",
+                "443",
+                "8080"
+            ],
+            "answer": 0,
+            "_id": "64a4457f22edbf56adb44ebb"
+        },
+        {
+            "question": "Which of the following is an example of an HTTP request?",
+            "choices": [
+                "GET / HTTP/1.1",
+                "POST / HTTP/1.1",
+                "GET /www.example.com/index.html HTTP/1.1",
+                "POST /www.example.com/index.html HTTP/1.1"
+            ],
+            "answer": 2,
+            "_id": "64a4457f22edbf56adb44ebc"
+        },
+        {
+            "question": "Which of the following can be used to make an HTTP request with JavaScript?",
+            "choices": [
+                "XMLHttpRequest",
+                "Document Object Model",
+                "JSON Parser",
+                "Node.js"
+            ],
+            "answer": 0,
+            "_id": "64a4457f22edbf56adb44ebd"
+        },
+        {
+            "question": "Which of the following is not a valid HTTP response status code?",
+            "choices": [
+                "200 OK",
+                "304 Not Modified",
+                "400 Bad Request",
+                "500 Internal Server Error"
+            ],
+            "answer": 3,
+            "_id": "64a4457f22edbf56adb44ebe"
+        }
+    ],
+    "__v": 0
+  }
+  ```
+
+    </details>
+
+- **Error Response:**
+
+    <details>
+
+    <summary> <b> Code: </b> 401 Unauthorized  </summary>
+
+  ```json
+  {
+    "msg": "Invalid Token"
+  }
+  ```
+
+    </details>
+
+    <details>
+
+    <summary> <b> Code: </b> 404 Unauthorized  </summary>
+
+  ```json
+  {
+    "msg": "Id not found",
+  }
+  OR
+  {
+    "msg": "Task id not found",
+  }
+  OR
+  {
+    "msg": "Schedule id not found",
+  }
+  ```
+
+    </details>
+
+    <details>
+
+    <summary> <b> Code: </b> 500 Internal Server Error  </summary>
+
+  ```json
+  {
+    "msg": "Internal Server Error!"
+  }
+  ```
+
+    </details>
+
+---
