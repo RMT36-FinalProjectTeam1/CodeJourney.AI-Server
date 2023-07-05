@@ -153,7 +153,6 @@ class ScheduleController {
     try {
       const scheduleId = req.params.scheduleId;
       const { taskId } = req.body;
-      await TaskDetail.findOneAndUpdate({ taskId }, { complete: true })
       const schedule = await UserSchedule.findById(scheduleId);
       if (!schedule) throw { status: 404, msg: 'Schedule not found' }
       let found = false
@@ -164,6 +163,7 @@ class ScheduleController {
         };
       });
       if (!found) throw { status: 404, msg: 'Task not found' }
+      await TaskDetail.findOneAndUpdate({ taskId }, { complete: true })
       await UserSchedule.findByIdAndUpdate(scheduleId, schedule);
       res.status(200).json({ msg: "Task successfully updated" });
     } catch (err) {
