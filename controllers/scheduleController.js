@@ -90,9 +90,11 @@ class ScheduleController {
       const detailTask = await TaskDetail.findOne({ taskId })
       if (detailTask) return res.status(200).json(detailTask);
       let taskTitle;
+      let taskComplete
       schedule.schedules.forEach((task) => {
         if (taskId == task._id) {
           taskTitle = task.task;
+          taskComplete = task.complete
         }
       });
       if (!taskTitle) throw { status: 404, msg: 'Task not found' }
@@ -136,6 +138,7 @@ class ScheduleController {
       const result = {
         taskId: taskId,
         title: taskTitle,
+        complete: taskComplete,
         reference: ref,
         quiz: quiz,
       };
@@ -150,6 +153,7 @@ class ScheduleController {
     try {
       const scheduleId = req.params.scheduleId;
       const { taskId } = req.body;
+      await TaskDetail.findOneAndUpdate({ taskId }, { complete: true })
       const schedule = await UserSchedule.findById(scheduleId);
       if (!schedule) throw { status: 404, msg: 'Schedule not found' }
       let found = false

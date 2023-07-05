@@ -27,6 +27,7 @@ const schedulesSchema = new Schema({
 const taskDetailSchema = new Schema({
   title: String,
   taskId: mongoose.ObjectId,
+  complete : Boolean,
   reference: {
     medium: [{ title: String, link: String }],
     w3schools: [{ title: String, link: String }],
