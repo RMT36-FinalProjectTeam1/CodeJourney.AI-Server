@@ -7,6 +7,6 @@ module.exports = async(title) => {
   })
   return {
     title: data.items[0].snippet.title,
-    link:`https://www.youtube.com/watch?v=${data.items[0].id.videoId}`
+    link:`https://www.youtube.com/embed/${data.items[0].id.videoId}`
   }
 }
