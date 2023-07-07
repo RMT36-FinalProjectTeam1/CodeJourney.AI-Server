@@ -32,9 +32,9 @@ class UserController {
       }
       const token = jwtSignIn({ id: user.id })
       res.status(200).json({
-        access_token: token,
+        webtoken: token,
         id: user.id,
-        username:user.username,
+        username: user.username,
       })
     } catch (err) {
       next(err)
@@ -68,7 +68,7 @@ class UserController {
   //     const jwtToken = jwtSignIn({ id: user.id })
   //     res.status(200).json({
   //       msg: "Success login using Google account",
-  //       access_token: jwtToken,
+  //       webtoken: jwtToken,
   //       id: user.id,
   //       role: user.role,
   //       username: user.username

@@ -227,7 +227,7 @@ describe('ENDPOINT /generatecustomtask', () => {
       const response = await request(app)
         .post('/generatecustomtask')
         .send(bodyReq)
-        .set("access_token", userToken)
+        .set("webtoken", userToken)
       expect(response.status).toBe(200)
       expect(response.body).toHaveProperty('title', expect.any(String))
       expect(response.body).toHaveProperty('tasks', expect.any(Array))
@@ -242,7 +242,7 @@ describe('ENDPOINT /generatecustomtask', () => {
 
       const response = await request(app)
         .post('/generatecustomtask').send(bodyReq)
-        .set("access_token", userToken)
+        .set("webtoken", userToken)
       expect(response.status).toBe(400)
       expect(response.body).toHaveProperty('msg', expect.any(String))
     })
@@ -264,7 +264,7 @@ describe('ENDPOINT /schedules', () => {
       const response = await request(app)
         .post('/schedules')
         .send(bodyReq)
-        .set("access_token", userToken)
+        .set("webtoken", userToken)
       expect(response.status).toBe(201)
       expect(response.body).toHaveProperty('msg', 'Schedule successfully created!')
     })
@@ -280,7 +280,7 @@ describe('ENDPOINT /schedules', () => {
       const response = await request(app)
         .post('/schedules')
         .send(bodyReq)
-        .set("access_token", userToken)
+        .set("webtoken", userToken)
       expect(response.status).toBe(400)
       expect(response.body).toHaveProperty('msg', 'Invalid input')
     })
@@ -291,7 +291,7 @@ describe('ENDPOINT /schedules', () => {
 
       const response = await request(app)
         .get('/schedules')
-        .set("access_token", userToken)
+        .set("webtoken", userToken)
       expect(response.status).toBe(200)
       expect(response.body).toBeInstanceOf(Array)
       expect(response.body[0]).toHaveProperty("schedules", expect.any(Array))
@@ -301,7 +301,7 @@ describe('ENDPOINT /schedules', () => {
 
       const response = await request(app)
         .get('/schedules')
-        .set("access_token", badToken)
+        .set("webtoken", badToken)
       expect(response.status).toBe(401)
       expect(response.body).toHaveProperty("msg", expect.any(String))
     })
@@ -310,7 +310,7 @@ describe('ENDPOINT /schedules', () => {
 
       const response = await request(app)
         .get('/schedules')
-        .set("access_token", badToken2)
+        .set("webtoken", badToken2)
       expect(response.status).toBe(401)
       expect(response.body).toHaveProperty("msg", expect.any(String))
     })
@@ -326,7 +326,7 @@ describe('ENDPOINT /schedules/:scheduleId', () => {
       // Replace the original handler with the mock function
       const response = await request(app)
         .get('/schedules/' + scheduleId)
-        .set("access_token", userToken)
+        .set("webtoken", userToken)
       expect(response.status).toBe(200)
       expect(response.body).toHaveProperty('schedules', expect.any(Array))
       expect(response.body).toHaveProperty('scheduleTitle', expect.any(String))
@@ -337,7 +337,7 @@ describe('ENDPOINT /schedules/:scheduleId', () => {
       // Replace the original handler with the mock function
       const response = await request(app)
         .get('/schedules/' + badScheduleId)
-        .set("access_token", userToken)
+        .set("webtoken", userToken)
       expect(response.status).toBe(404)
       expect(response.body).toHaveProperty('msg', 'Schedule not found')
     })
@@ -346,7 +346,7 @@ describe('ENDPOINT /schedules/:scheduleId', () => {
       // Replace the original handler with the mock function
       const response = await request(app)
         .get('/schedules/' + badScheduleId2)
-        .set("access_token", userToken)
+        .set("webtoken", userToken)
       expect(response.status).toBe(404)
       expect(response.body).toHaveProperty('msg', 'id not found')
     })
@@ -359,7 +359,7 @@ describe('ENDPOINT /schedules/:scheduleId', () => {
       const response = await request(app)
         .patch('/schedules/' + scheduleId)
         .send({ taskId })
-        .set("access_token", userToken)
+        .set("webtoken", userToken)
       expect(response.status).toBe(200)
       expect(response.body).toHaveProperty('msg', expect.any(String))
     })
@@ -370,7 +370,7 @@ describe('ENDPOINT /schedules/:scheduleId', () => {
       const response = await request(app)
         .patch('/schedules/' + badScheduleId)
         .send({ taskId: badTaskId })
-        .set("access_token", userToken)
+        .set("webtoken", userToken)
       expect(response.status).toBe(404)
       expect(response.body).toHaveProperty('msg', 'Schedule not found')
     })
@@ -380,7 +380,7 @@ describe('ENDPOINT /schedules/:scheduleId', () => {
       const response = await request(app)
         .patch('/schedules/' + scheduleId)
         .send({ taskId: badTaskId })
-        .set("access_token", userToken)
+        .set("webtoken", userToken)
       expect(response.status).toBe(404)
       expect(response.body).toHaveProperty('msg', 'Task not found')
     })
@@ -392,7 +392,7 @@ describe('ENDPOINT /schedules/:scheduleId', () => {
 
       const response = await request(app)
         .delete('/schedules/' + deletedScheduleId)
-        .set("access_token", userToken)
+        .set("webtoken", userToken)
       expect(response.status).toBe(200)
       expect(response.body).toHaveProperty('msg', expect.any(String))
     })
@@ -402,7 +402,7 @@ describe('ENDPOINT /schedules/:scheduleId', () => {
 
       const response = await request(app)
         .delete('/schedules/' + badScheduleId)
-        .set("access_token", userToken)
+        .set("webtoken", userToken)
       expect(response.status).toBe(404)
       expect(response.body).toHaveProperty('msg', 'Schedule not found')
     })
@@ -414,7 +414,7 @@ describe('ENDPOINT /schedules/:scheduleId', () => {
 
       const response = await request(app)
         .get('/recommended')
-        .set("access_token", userToken)
+        .set("webtoken", userToken)
       expect(response.status).toBe(200)
       expect(response.body).toBeInstanceOf(Array)
       expect(response.body[0]).toHaveProperty('title', expect.any(String))
@@ -430,7 +430,7 @@ describe('ENDPOINT /schedules/:scheduleId/:taskId', () => {
     test('success create and get new detail tasks', async () => {
       const response = await request(app)
         .get(`/schedules/${scheduleId}/${taskId}`)
-        .set("access_token", userToken)
+        .set("webtoken", userToken)
 
       expect(response.status).toBe(200)
       expect(response.body).toHaveProperty('reference', expect.any(Object))
@@ -449,7 +449,7 @@ describe('ENDPOINT /schedules/:scheduleId/:taskId', () => {
     test('success get generated detail tasks from mongodb', async () => {
       const response = await request(app)
         .get(`/schedules/${scheduleId}/${insertedTaskId}`)
-        .set("access_token", userToken)
+        .set("webtoken", userToken)
 
       expect(response.status).toBe(200)
       expect(response.body).toHaveProperty('reference', expect.any(Object))
@@ -468,7 +468,7 @@ describe('ENDPOINT /schedules/:scheduleId/:taskId', () => {
     test('failed get generated detail tasks schedule id not found', async () => {
       const response = await request(app)
         .get(`/schedules/${badScheduleId}/${badTaskId}`)
-        .set("access_token", userToken)
+        .set("webtoken", userToken)
 
       expect(response.status).toBe(404)
       expect(response.body).toHaveProperty('msg', 'Schedule not found')
@@ -477,7 +477,7 @@ describe('ENDPOINT /schedules/:scheduleId/:taskId', () => {
     test('failed get generated detail tasks schedule id not found', async () => {
       const response = await request(app)
         .get(`/schedules/${scheduleId}/${badTaskId}`)
-        .set("access_token", userToken)
+        .set("webtoken", userToken)
 
       expect(response.status).toBe(404)
       expect(response.body).toHaveProperty('msg', 'Task not found')

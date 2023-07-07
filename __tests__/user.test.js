@@ -140,7 +140,7 @@ describe('ENDPOINT /login', () => {
 
       const response = await request(app).post('/login').send(bodyReq)
       expect(response.status).toBe(200)
-      expect(response.body).toHaveProperty('access_token', expect.any(String))
+      expect(response.body).toHaveProperty('webtoken', expect.any(String))
     })
 
     test('Register fail, no email', async () => {
